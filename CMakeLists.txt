@@ -107,16 +107,16 @@ if(BUILD_PYTHON_BINDINGS)
     )
 
     # Create Python module
-    pybind11_add_module(opendrive_bindings ${BINDING_SOURCES})
-    target_link_libraries(opendrive_bindings PRIVATE OpenDrive)
+    pybind11_add_module(open_drive ${BINDING_SOURCES})
+    target_link_libraries(open_drive PRIVATE OpenDrive)
     target_include_directories(
-        opendrive_bindings PRIVATE
+        open_drive PRIVATE
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<BUILD_INTERFACE:${pugixml_SOURCE_DIR}/src>
     )
 
     # Install Python module
-    install(TARGETS opendrive_bindings
+    install(TARGETS open_drive
         LIBRARY DESTINATION ${Python3_SITELIB}
     )
 endif()

@@ -7,7 +7,7 @@ build_dir = os.path.abspath("build")
 
 ext_modules = [
     Pybind11Extension(
-        "opendrive_bindings",
+        "opendrive",
         [
             "bindings/bindings.cpp",
             "bindings/opendrivemap.cpp",
@@ -60,7 +60,7 @@ ext_modules = [
 ]
 
 setup(
-    name="opendrive_bindings",
+    name="opendrive",
     version="0.0.1",
     description="Python bindings for libOpenDRIVE",
     long_description=open("README.md").read(),
