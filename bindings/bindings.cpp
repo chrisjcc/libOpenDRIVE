@@ -34,9 +34,4 @@ PYBIND11_MODULE(opendrive_bindings, m) {
     init_lanevalidityrecord(m);
     init_roadsignal(m);
     init_math(m);
-
-    py::print("Registered types:");
-    for (const auto &entry : py::detail::get_internals().registered_types_cpp) {
-        py::print(entry.first);
-}
 }
