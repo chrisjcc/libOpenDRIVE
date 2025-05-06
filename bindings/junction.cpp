@@ -1,6 +1,8 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+#include "XmlNode.h"
 #include <Junction.h>
+
 
 namespace py = pybind11;
 
@@ -12,13 +14,6 @@ void init_junction(py::module_ &m) {
              "Constructs a JunctionLaneLink with from and to lane IDs")
         .def_readwrite("from", &odr::JunctionLaneLink::from, "Source lane ID")
         .def_readwrite("to", &odr::JunctionLaneLink::to, "Destination lane ID");
-
-    // Bind JunctionConnection::ContactPoint enum
-    py::enum_<odr::JunctionConnection::ContactPoint>(m, "ContactPoint")
-        .value("None", odr::JunctionConnection::ContactPoint_None)
-        .value("Start", odr::JunctionConnection::ContactPoint_Start)
-        .value("End", odr::JunctionConnection::ContactPoint_End)
-        .export_values();
 
     // Bind JunctionConnection
     py::class_<odr::JunctionConnection>(m, "JunctionConnection")

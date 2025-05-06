@@ -33,8 +33,6 @@ void init_lane(py::module_ &m) {
 
     // Bind opaque types
     py::class_<odr::CubicSpline>(m, "CubicSpline");
-    py::class_<odr::RoadMark>(m, "RoadMark");
-    py::class_<odr::RoadMarkGroup>(m, "RoadMarkGroup");
 
     // Bind Lane
     py::class_<odr::Lane>(m, "Lane")

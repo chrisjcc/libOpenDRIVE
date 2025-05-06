@@ -1,14 +1,42 @@
+#include "bindings.h"
 #include <pybind11/pybind11.h>
-#include <pybind11/stl.h>  // For std::vector, std::map, etc.
+#include <pybind11/stl.h>
 #include <OpenDriveMap.h>
+#include <Road.h> // For RoadLink::ContactPoint
 
 namespace py = pybind11;
-
-void init_opendrivemap(py::module_ &);
 
 PYBIND11_MODULE(opendrive_bindings, m) {
     m.doc() = "Python bindings for libOpenDRIVE";
 
+    // RoadLink depends on XmlNode
+    init_xml_node(m);
+
+    // Bind ContactPoint enum
+    py::enum_<odr::RoadLink::ContactPoint>(m, "ContactPoint")
+        .value("None", odr::RoadLink::ContactPoint::ContactPoint_None)
+        .value("Start", odr::RoadLink::ContactPoint::ContactPoint_Start)
+        .value("End", odr::RoadLink::ContactPoint::ContactPoint_End)
+        .export_values();
+
+    // Initialize other modules
     init_opendrivemap(m);
-    // Add class bindings here
+    init_mesh(m);
+    init_junction(m);
+    init_lane(m);
+    init_lanesection(m);
+    init_road(m);
+    init_refline(m);
+    init_routinggraph(m);
+    init_roadmark(m);
+    init_roadnetworkmesh(m);
+    init_roadobject(m);
+    init_lanevalidityrecord(m);
+    init_roadsignal(m);
+    init_math(m);
+
+    py::print("Registered types:");
+    for (const auto &entry : py::detail::get_internals().registered_types_cpp) {
+        py::print(entry.first);
+}
 }

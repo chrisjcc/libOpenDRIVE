@@ -91,9 +91,18 @@ if(BUILD_PYTHON_BINDINGS)
         bindings/opendrivemap.cpp
         bindings/junction.cpp
         bindings/lane.cpp
-        bindings/lanesection.h
-        #bindings/road.cpp
-        #bindings/geometry.cpp
+        bindings/lanesection.cpp
+        bindings/road.cpp
+        bindings/refline.cpp
+        bindings/mesh.cpp
+        bindings/routinggraph.cpp
+        bindings/roadmark.cpp
+        bindings/roadnetworkmesh.cpp
+        bindings/roadobject.cpp
+        bindings/lanevalidityrecord.cpp
+        bindings/roadsignal.cpp
+        bindings/math.cpp
+        bindings/xml_node.cpp
         # Add other binding files as needed
     )
 
