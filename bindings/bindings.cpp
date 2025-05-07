@@ -6,7 +6,7 @@
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(opendrive, m) {
+PYBIND11_MODULE(open_drive, m) {
     m.doc() = "Python bindings for libOpenDRIVE";
 
     // RoadLink depends on XmlNode
