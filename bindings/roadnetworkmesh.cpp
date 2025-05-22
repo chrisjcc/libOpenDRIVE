@@ -16,7 +16,9 @@ void init_roadnetworkmesh(py::module_ &m) {
              py::return_value_policy::move,
              "Returns the index interval for the road at the given vertex index")
         .def_readwrite("road_start_indices", &odr::RoadsMesh::road_start_indices,
-                       "Map of vertex indices to road IDs");
+                       "Map of vertex indices to road IDs")
+        .def_readwrite("vertices", &odr::Mesh3D::vertices, py::return_value_policy::reference,
+                       "List of 3D vertices");
 
     // Bind LanesMesh
     py::class_<odr::LanesMesh, odr::RoadsMesh>(m, "LanesMesh")

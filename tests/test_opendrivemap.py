@@ -4,7 +4,7 @@ import pytest
 from opendrive import OpenDriveMap, LaneKey
 
 def test_basic_opendrivemap_check():
-    odr_map = OpenDriveMap("test.xodr")
+    odr_map = OpenDriveMap("tests/test.xodr", center_map=False)
     assert odr_map.xml_parse_result
     assert len(odr_map.get_roads()) > 0
 

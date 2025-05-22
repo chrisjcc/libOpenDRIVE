@@ -2,7 +2,7 @@ from setuptools import setup
 from pybind11.setup_helpers import Pybind11Extension
 import os
 
-# Path to the build directory where libOpenDrive.dylib is located
+# Path to the build directory where e.g. libOpenDrive.dylib is located
 build_dir = os.path.abspath("build")
 
 ext_modules = [
@@ -25,31 +25,9 @@ ext_modules = [
             "bindings/lanevalidityrecord.cpp",
             "bindings/roadsignal.cpp",
             "bindings/xml_node.cpp",
-            #"src/Geometries/Arc.cpp",
-            #"src/Geometries/CubicSpline.cpp",
-            #"src/Geometries/Line.cpp",
-            #"src/Geometries/ParamPoly3.cpp",
-            #"src/Geometries/RoadGeometry.cpp",
-            #"src/Geometries/Spiral.cpp",
-            #"src/Geometries/Spiral/odrSpiral.cpp",
-            #"src/Junction.cpp",
-            #"src/Lane.cpp",
-            #"src/LaneSection.cpp",
-            #"src/Log.cpp",
-            #"src/Mesh.cpp",
-            #"src/OpenDriveMap.cpp",
-            #"src/RefLine.cpp",
-            #"src/Road.cpp",
-            #"src/RoadMark.cpp",
-            #"src/RoadNetworkMesh.cpp",
-            #"src/RoadObject.cpp",
-            #"src/RoadSignal.cpp",
-            #"src/RoutingGraph.cpp",
-            #"src/pugixml.cpp",
         ],
         include_dirs=[
             "include",  # libOpenDRIVE headers
-            #"src",
             os.path.join(build_dir, "_deps/pugixml-src/src"),  # pugixml headers
         ],
         define_macros=[("NDEBUG", None)],
@@ -65,10 +43,10 @@ setup(
     description="Python bindings for libOpenDRIVE",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    author="Your Name",
-    author_email="your.email@example.com",
-    url="https://github.com/your-username/libOpenDRIVE",
-    license="MIT",  # Adjust based on libOpenDRIVE license
+    author="Christian Contreras",
+    author_email="chrisjcc.physics@gmail.com",
+    url="https://github.com/pageldev/libOpenDRIVE",
+    license="Apache License",
     ext_modules=ext_modules,
     install_requires=["pybind11>=2.9"],
 )
